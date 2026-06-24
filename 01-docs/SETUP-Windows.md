@@ -32,7 +32,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## 2. Folder setup
 
-Create the following structure under your vault root. Replace `<vault-root>` with your actual path (e.g., `C:\Users\yourname\Documents\ObsidianVaults\HHG\HHG-Phase3`).
+Create the following structure under your vault root. Replace `<vault-root>` with your actual path (e.g., `C:\Users\yourname\Documents\ObsidianVaults\YourClient\YourProject`).
 
 ```
 <vault-root>\

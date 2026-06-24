@@ -43,11 +43,10 @@ except ImportError:
 # Keys are matched case-insensitively as substrings against the From header.
 # First match wins.
 SENDER_PROJECT_RULES: dict[str, str] = {
-    "hhglobal.com":   "HHG",
-    "inwk.com":       "HHG",
-    "westmonroe.com": "WM",
+    "clientdomain.com":  "ClientProject",
+    "yourfirm.com":      "Internal",
     # Add more as needed:
-    # "clientdomain.com": "ClientProject",
+    # "anotherclient.com": "AnotherProject",
 }
 
 # Default tags applied to every generated note

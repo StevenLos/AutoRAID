@@ -97,11 +97,8 @@ This repo's layout separates scripts, documentation, and the Codex prompt from a
 │       ├── vtt_to_markdown.py             VTT → Markdown converter (cross-platform)
 │       ├── run_email_ingest.ps1         Ingest wrapper / Task Scheduler target
 │       └── Register-EmailIngestTask.ps1   One-time Task Scheduler registration
-├── 03-prompts/
-│   └── Update HHG RAID Log.md            Codex prompt — paste or schedule in Codex
-└── 11-reference/                          Example output from a live engagement
-    ├── ExistingFolders/                   Sample vault structure (emails, meetings, logs)
-    └── 06-Prompts/                        Original prompt location (preserved for reference)
+└── 03-prompts/
+    └── Update RAID Log.md            Codex prompt — paste or schedule in Codex
 ```
 
 The vault that Codex reads and writes at runtime lives **outside** this repo, managed by each user (see the platform guides for the expected vault layout).
@@ -126,11 +123,11 @@ The vault that Codex reads and writes at runtime lives **outside** this repo, ma
 | Windows MSG converter | `02-scripts/Windows/msg_to_markdown.py` | Converts `.msg` files (Outlook for Windows drag output) to Markdown with YAML frontmatter. Deduplicates via Message-ID index. |
 | Windows ingest wrapper | `02-scripts/Windows/run_email_ingest.ps1` | PowerShell wrapper called by Task Scheduler or manually. |
 | Windows scheduler setup | `02-scripts/Windows/Register-EmailIngestTask.ps1` | One-time script to register the ingest job in Windows Task Scheduler. |
-| RAID log prompt | `03-prompts/Update HHG RAID Log.md` | The Codex prompt run on a schedule to scan new artifacts and update the RAID log and task list. |
+| RAID log prompt | `03-prompts/Update RAID Log.md` | The Codex prompt run on a schedule to scan new artifacts and update the RAID log and task list. |
 
 ## How the RAID update runs
 
-The RAID log is updated by a **Codex scheduled task** that submits the prompt in `03-prompts/Update HHG RAID Log.md` on a configured cadence (e.g., daily or after each meeting). Codex scans the `Meetings/` and `Email/Inbox/` folders in your vault for new artifacts not yet reflected in the log, then appends structured entries.
+The RAID log is updated by a **Codex scheduled task** that submits the prompt in `03-prompts/Update RAID Log.md` on a configured cadence (e.g., daily or after each meeting). Codex scans the `Meetings/` and `Email/Inbox/` folders in your vault for new artifacts not yet reflected in the log, then appends structured entries.
 
 No new items are added if no new artifacts are found. See the prompt file itself for the full entry schema and safety rules.
 

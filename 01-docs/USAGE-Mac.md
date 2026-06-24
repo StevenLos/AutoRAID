@@ -106,14 +106,14 @@ If the Codex scheduled task is configured (see setup guide), the RAID log update
 
 ### Run manually
 
-Paste the contents of `03-prompts/Update HHG RAID Log.md` into a Codex session with this vault folder connected and send it.
+Paste the contents of `03-prompts/Update RAID Log.md` into a Codex session with this vault folder connected and send it.
 
 ### What the prompt does
 
 - Scans `Meetings/Transcripts/`, `Meetings/Summary/`, and `Email/Inbox/` for new `.md` files
 - Skips any artifact already reflected in the log
-- Appends new Risks, Actions, Issues, and Decisions to `RAIDLog/HHG-Phase3-RAIDLog.md`
-- Appends new tasks to `AutoTasks/HHG-Phase3-AutoTaskList.md`
+- Appends new Risks, Actions, Issues, and Decisions to `RAIDLog/<ProjectName>-RAIDLog.md`
+- Appends new tasks to `AutoTasks/<ProjectName>-AutoTaskList.md`
 - Writes a run summary at the bottom of each file
 
 If no new artifacts are found, neither file is modified.
@@ -129,15 +129,15 @@ If no new artifacts are found, neither file is modified.
 **After a meeting:**
 1. Download transcript from Teams → move `.vtt` to `Meetings/Transcripts/`
 2. Run `vtt_to_markdown.py` to convert it to `.md`
-2. Optionally write a summary → save to `Meetings/Summary/`
-3. Run the RAID prompt in Codex (or wait for the scheduled task)
+3. Optionally write a summary → save to `Meetings/Summary/`
+4. Run the RAID prompt in Codex (or wait for the scheduled task)
 
 **Reviewing the RAID log:**
-- Open `RAIDLog/HHG-Phase3-RAIDLog.md` in Obsidian
+- Open `RAIDLog/<ProjectName>-RAIDLog.md` in Obsidian
 - New entries are appended at the bottom; the `Source` field links back to the originating artifact
 
 **Triaging the task list:**
-- Open `AutoTasks/HHG-Phase3-AutoTaskList.md`
+- Open `AutoTasks/<ProjectName>-AutoTaskList.md`
 - New tasks default to `Relevant = TBD` — update each row to `Me` or `N/A`
 
 ---

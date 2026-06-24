@@ -6,7 +6,7 @@ This guide covers creating and configuring the Codex scheduled task that automat
 
 ## What the task does
 
-On a repeating schedule, Codex reads the prompt in `03-prompts/Update HHG RAID Log.md`, scans the vault's `Meetings/` and `Email/Inbox/` folders for new artifacts, and appends structured RAID entries and tasks to the log files. If nothing new is found, no changes are made.
+On a repeating schedule, Codex reads the prompt in `03-prompts/Update RAID Log.md`, scans the vault's `Meetings/` and `Email/Inbox/` folders for new artifacts, and appends structured RAID entries and tasks to the log files. If nothing new is found, no changes are made.
 
 ---
 
@@ -16,7 +16,7 @@ Before creating the task:
 
 - Codex is installed and open
 - The vault folder is connected as a workspace in Codex
-- `03-prompts/Update HHG RAID Log.md` exists in the repo folder
+- `03-prompts/Update RAID Log.md` exists in the repo folder
 
 ---
 
@@ -41,7 +41,7 @@ Set to `Active` once configuration is complete. Leave inactive while setting up.
 Select `Local`. The task must run locally because it needs direct access to the vault files on your machine. Do not use a remote/cloud option.
 
 **Project**
-Select or type the name of your project workspace — e.g., `HHG-Phase3`. This must match the connected vault folder.
+Select or type the name of your project workspace — e.g., `Acme-Phase2`. This must match the connected vault folder.
 
 **Repeats**
 Set your preferred cadence. Recommended: `Weekdays at 3:00 PM`. This gives a same-day update after afternoon meetings or email reviews. Adjust to match your team's working pattern.
@@ -55,7 +55,7 @@ Set your preferred cadence. Recommended: `Weekdays at 3:00 PM`. This gives a sam
 Select `GPT-5.5 Extra High` (or the highest-quality model available). The RAID prompt involves careful deduplication, semantic judgment, and structured output — a higher-capability model produces significantly more accurate results than a faster/smaller one.
 
 **Prompt**
-Paste the full contents of `03-prompts/Update HHG RAID Log.md` into the prompt field, or point the task at the file directly if Codex supports file-based prompts.
+Paste the full contents of `03-prompts/Update RAID Log.md` into the prompt field, or point the task at the file directly if Codex supports file-based prompts.
 
 ---
 
@@ -70,7 +70,7 @@ Once all fields are configured, set **Status** to `Active`. The task will run at
 After the first scheduled run, confirm it executed correctly:
 
 1. Check the **Last ran** timestamp in the task detail view — it should reflect the most recent scheduled time.
-2. Open `RAIDLog/HHG-Phase3-RAIDLog.md` in Obsidian and scroll to the bottom. A `### Run:` block will have been appended with a timestamp, list of scanned files, and count of entries added.
+2. Open `RAIDLog/<ProjectName>-RAIDLog.md` in Obsidian and scroll to the bottom. A `### Run:` block will have been appended with a timestamp, list of scanned files, and count of entries added.
 3. If the run summary shows `New meetings found: 0` and no entries were added, that is expected — it means no new artifacts were present since the last run.
 
 ---
@@ -93,6 +93,6 @@ To trigger an update outside the schedule — for example, immediately after add
 
 1. Open Codex with the vault folder connected.
 2. Open a new session.
-3. Paste the contents of `03-prompts/Update HHG RAID Log.md` and send it.
+3. Paste the contents of `03-prompts/Update RAID Log.md` and send it.
 
 This produces the same output as the scheduled run.

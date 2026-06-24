@@ -19,7 +19,7 @@ Before starting, confirm you have:
 
 ## 1. Folder setup
 
-Create the following structure under your vault root. Replace `<vault-root>` with your actual path (e.g., `~/Documents/ObsidianVaults/HHG/HHG-Phase3`).
+Create the following structure under your vault root. Replace `<vault-root>` with your actual path (e.g., `~/Documents/ObsidianVaults/YourClient/YourProject`).
 
 ```
 <vault-root>/

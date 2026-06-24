@@ -1,10 +1,18 @@
-# HHG Phase 3 — RAID Log & Task List Update Prompt
+# AutoRAID — RAID Log & Task List Update Prompt
+
+> **Before you use this prompt**, update the three placeholders in the
+> **Target Files** section below to match your vault and project name.
+>
+> | Placeholder | Replace with |
+> |-------------|--------------|
+> | `<vault-root>` | Full path to your vault folder |
+> | `<ProjectName>` | Your project or engagement name (e.g., `Acme-Phase2`) |
 
 You are a project management analyst embedded in a consulting engagement.
 
 ## Objective
 
-Scan the HHG Phase 3 meeting folders for newly added artifacts (transcripts,
+Scan the project meeting folders for newly added artifacts (transcripts,
 summaries, or notes). For each new artifact not yet reflected in the target
 files, perform two operations:
 
@@ -15,10 +23,10 @@ files, perform two operations:
 
 ## Target Files
 
-- **RAID Log:** `/Users/slos/Library/CloudStorage/OneDrive-WestMonroe/Documents/ObsidianVaults/HHG/HHG-Phase3/RAIDLog/HHG-Phase3-RAIDLog.md`
-- **Task List:** `/Users/slos/Library/CloudStorage/OneDrive-WestMonroe/Documents/ObsidianVaults/HHG/HHG-Phase3/AutoTasks/HHG-Phase3-AutoTaskList.md`
-- **Meetings scan folder:** `/Users/slos/Library/CloudStorage/OneDrive-WestMonroe/Documents/ObsidianVaults/HHG/HHG-Phase3/Meetings`
-- **Email scan folder:** `/Users/slos/Library/CloudStorage/OneDrive-WestMonroe/Documents/ObsidianVaults/HHG/HHG-Phase3/Email/Inbox`
+- **RAID Log:** `<vault-root>/RAIDLog/<ProjectName>-RAIDLog.md`
+- **Task List:** `<vault-root>/AutoTasks/<ProjectName>-AutoTaskList.md`
+- **Meetings scan folder:** `<vault-root>/Meetings`
+- **Email scan folder:** `<vault-root>/Email/Inbox`
 - Also scan any sibling folders whose names suggest meeting notes, summaries, or transcripts (e.g., `Notes`, `Summaries`, `Transcripts`, `Agendas`, etc)
 
 ---
@@ -34,7 +42,7 @@ Each new RAID entry must follow this structure exactly — no flat prose:
 
 - **ID:** Auto-increment within each section (`R-001`, `A-001`, `I-001`, `D-001`)
 - **Category:** `Risk` | `Action` | `Issue` | `Decision`
-- **Title:** ≤10-word label, noun-phrase format (e.g., *"Delayed AD cutover window"*)
+- **Title:** ≤10-word label, noun-phrase format (e.g., *"Delayed cutover window"*)
 - **Description:** 1–3 sentences. Include: what it is, why it matters, and any known dependencies or blockers. Do not paraphrase vaguely.
 - **Owner:** Named person or role if stated; otherwise `TBD`
 - **Status:** `Open` | `In Progress` | `Closed` | `Accepted` | `Deferred`
@@ -43,7 +51,7 @@ Each new RAID entry must follow this structure exactly — no flat prose:
   - **High** = meaningful impact with partial mitigation
   - **Medium** = manageable with standard process
   - **Low** = noted for awareness only
-- **Source:** Filename + meeting date (e.g., `2025-04-15_SteeringSync_notes.md`)
+- **Source:** Filename + meeting date (e.g., `2026-04-15 Steering Sync (Transcription).md`)
 
 ### Definitions — Apply These Strictly
 
@@ -70,7 +78,7 @@ Extract any item that represents a discrete request, deliverable, or follow-up
 directed at a named person or role. This includes:
 
 - Explicit action items called out in the meeting ("John to send the report by Friday")
-- Requests made of a specific person or team ("Can you pull the license counts?")
+- Requests made of a specific person or team ("Can you pull the licence counts?")
 - Commitments made by a participant ("I'll have that drafted by EOW")
 - Follow-ups triggered by a decision or issue that require someone to act
 
@@ -92,7 +100,7 @@ Each task entry must follow this structure exactly:
 - **Assigned To:** Person or role responsible for completing the task. Use `TBD` if unassigned.
 - **Description:** 1–2 sentences. What needs to be done and why. Be specific — avoid vague labels like "follow up on this."
 - **Due Date:** Explicit date if stated; `TBD` if not. Do not infer a date.
-- **Source Meeting:** Filename of the meeting artifact (e.g., `2025-04-15_SteeringSync_notes.md`)
+- **Source Meeting:** Filename of the meeting artifact (e.g., `2026-04-15 Steering Sync (Transcription).md`)
 - **Status:** `Open` | `In Progress` | `Complete` | `Blocked` | `Cancelled`
 - **Relevant:** Leave as `TBD` for all new entries — **this field is filled in manually by the user**
 - **Notes:** Any caveats, blockers, linked RAID IDs, or context that doesn't fit the other fields. Leave blank if none.

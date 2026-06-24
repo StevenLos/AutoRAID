@@ -8,7 +8,7 @@ set -euo pipefail
 # -----------------------------------------------------------------------
 # Configuration — edit this path to match your vault
 # -----------------------------------------------------------------------
-VAULT="/Users/slos/Documents/ObsidianVaults/HHG/HHG-Phase3"
+VAULT="/Users/yourname/Documents/ObsidianVaults/YourVault"
 
 # -----------------------------------------------------------------------
 # Derived paths — do not edit unless you changed the vault structure
